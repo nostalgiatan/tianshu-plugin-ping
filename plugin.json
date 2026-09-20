@@ -4,6 +4,6 @@
   "description": "把文本回声到管道。最简社区插件。",
   "readme": "README.md",
   "icon": "icon.svg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "abi": 3
 }
