@@ -1,0 +1,25 @@
+package tianshu:plugin@0.1.0;
+
+interface host {
+    /// One entry. `kind` is in | param | attr | info.
+    /// `info` keys are host-allowlisted. `graph.sha256` takes graph id in `b` (empty = current).
+    /// Empty string means missing or denied.
+    read: func(kind: string, a: string, b: string) -> string;
+    /// Workbench graph edits (`add_node`, `add_graph`, `move_nodes`, `connect_pipe`, …).
+    /// Wired during `on-tool`. Empty string means denied (including during `step`).
+    /// `add_graph` is forced under `plugin/<id>` and capped.
+    apply: func(op: string, args-json: string) -> string;
+}
+
+interface guest {
+    abi-version: func() -> u32;
+    id: func() -> string;
+    ui-json: func() -> string;
+    step: func(kind: string, params-json: string) -> string;
+    on-tool: func(id: string) -> string;
+}
+
+world plugin {
+    import host;
+    export guest;
+}

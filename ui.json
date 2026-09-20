@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    {
+      "kind": "ping",
+      "title": "Ping",
+      "category": "ping",
+      "categoryLabel": "Ping",
+      "icon": "icon.svg",
+      "fields": [
+        { "id": "text", "label": "Text", "type": "string", "default": "" }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "id": "place_ping",
+      "title": "Ping",
+      "icon": "icon.svg",
+      "op": "add_node",
+      "args": { "kind": "ping" }
+    }
+  ]
+}
